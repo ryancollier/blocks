@@ -9,11 +9,18 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title %></title>
     
-    <%= stylesheet_link_tag "normalize", "styles" %>
+    <%= stylesheet_link_tag "normalize", "utils", "styles" %>
+    
+    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,300,700' rel='stylesheet' type='text/css'>
+
     <%= javascript_include_tag  "all" %>
   </head>
   
   <body class="<%= page_classes %>">
     <%= yield %>
+  
+
   </body>
 </html>

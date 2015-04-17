@@ -1,0 +1,54 @@
+//Utils
+@import "bourbon";
+
+/* $visual-grid: true;
+$visual-grid-color: red;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.1; */
+
+$gutter: modular-scale(4, 1.1875em, $golden) !default;
+@import "neat";
+
+
+img { 
+	width: 100% !important;
+	height: auto !important;
+} 
+
+.container {
+	@include outer-container; 
+
+}
+
+.layout {
+	@include row();
+
+	& .col-12 {
+		@include span-columns(12);
+	}
+	& .col-8 {
+		@include span-columns(8);
+	}
+	& .col-6 {
+		@include span-columns(6);
+	}
+	& .col-4 {
+		@include span-columns(4);
+	}
+	& .col-2 {
+		@include span-columns(2);
+	}
+	& .last {
+		@include omega();
+	}
+
+	div[class*="col-"] {
+		@media only screen and (min-width : 320px) and (max-width : 480px) {
+			@include span-columns(12);
+		}
+	}
+}
+
+/* div[class*="col-"]{
+	
+} */
