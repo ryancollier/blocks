@@ -2,23 +2,68 @@
 title: Blocks
 ---
 
-<div id="main" class="layout">
+<div id="main">
 
 	<div class="container">
 
-
-		<div class="col-12">Col 12</div>
-
-
-		<div class="col-6">Col 6</div>
-		<div class="col-6 last">Col 6 - Omega</div>
+		<h1>Style Sample</h1>
+		<hr />
 
 		<div class="layout">
-		<div class="col-4">Col 4</div>
-		<div class="col-4">Col 4</div>
-		<div class="col-4 last">Col 4 - Omega</div>
-		</div>
+
+				
+			<div class="col-12">
+
+
+				<h1>Heading 1</h1>
+				<h2>Heading 2</h2>
+				<h3>Heading 3</h3>
+				<h4>Heading 4</h4>
+
+				<p><%= lorem.sentences 10 %></p>
+				<p><%= lorem.sentences 10 %></p>
+
+				<ol>
+					<li><%= lorem.words 3 %></li>
+					<li><%= lorem.words 5 %></li>
+					<li><%= lorem.words 9 %></li>
+					<li><%= lorem.words 14 %></li>
+				</ol>				
+
+				<ul>
+					<li><%= lorem.words 3 %></li>
+					<li><%= lorem.words 5 %></li>
+						<ul>
+							<li><%= lorem.words 3 %></li>
+							<li><%= lorem.words 5 %></li>
+						</ul>
+					<li><%= lorem.words 9 %></li>
+					<li><%= lorem.words 14 %></li>
+				</ul>
+
+				<hr />
+
+				<blockquote><%= lorem.sentences 3 %></blockquote>
+
+				<figure>
+					<img src="http://fillmurray.com/800/400" alt=" "/>
+					<figcaption>This is a great picture of actor Bill Murray.</figcaption>
+				</figure>
+
+
+				<h1>Heading 1</h1>
+				<p><%= lorem.sentences 6 %></p>
+				<h2>Heading 2</h2>
+				<p><%= lorem.sentences 6 %></p>
+				<h3>Heading 3</h3>
+				<p><%= lorem.sentences 6 %></p>
+				<h4>Heading 4</h4>
+				<p><%= lorem.sentences 6 %></p>
+
+			</div>
 
 		</div>
+
+	</div>
 
 </div>
