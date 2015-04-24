@@ -76,9 +76,14 @@
 	ul, ol {
 		font-family: $paragraph-typeface;
 		color: $paragraph-color;
+		padding-left: 1.3rem;
 
-		padding-left: 1rem;
+		li {
+			margin-bottom: $list-item-margin-bottom;
+		}
 	}
+
+	//Misc Elements
 
 	blockquote {
 		font-size: $blockquote-font-size;
@@ -92,15 +97,46 @@
 
 	}
 
+
+	figure {
+		figcaption {
+			font-family: $figcaption-typeface;
+			font-style: $figcaption-type-style;
+			line-height: $figcaption-line-height;
+			padding: $figcaption-padding;
+			margin: $figcaption-margin;
+			color: $figcaption-color; 
+		}
+	}
+
+
+	hr {
+
+		margin-top: $rule-margin-top;
+		margin-bottom: $rule-margin-bottom;
+		border-top: $rule-border-top;
+		border-bottom: $rule-border-bottom;
+		height: $rule-height;
+
+	}
 		
-	//Clean Up
+	//Clean Up Margins
 	div[class*="col-"] { 
 		& > h1:first-child,
 		& > h2:first-child,
 		& > h3:first-child, 
 		& > h4:first-child,
-		& > p {
+		& > p:first-child,
+		& > ul,
+		& > ol,
+		& > blockquote,
+		li + ul,
+		h1 + p, h2 + p, h3 + p, h4 + p {
 			margin-top: 0px;
+		}
+		
+		li + ul, li + ol {
+			margin-bottom: 0px;
 		}
 	}
 }
