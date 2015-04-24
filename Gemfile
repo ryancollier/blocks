@@ -16,3 +16,8 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 # Bourbon and neat to help with some basics, grid, etc.
 gem 'bourbon'
 gem 'neat'
+
+# Needed for Heroku
+gem 'puma',      '~> 2.7'
+gem 'rake',      '~> 10.1'
+gem 'rack-contrib'
