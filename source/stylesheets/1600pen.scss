@@ -58,7 +58,7 @@ $h4-weight: $heading-weight;
 // Paragraph 
 $paragraph-typeface: "Gentium Basic", "Georgia", serif;
 $paragraph-color: $primary-type-color;
-$paragraph-margin-bottom: $base-line-height;
+$paragraph-margin-bottom: 2* $base-line-height;
 
 // Lists
 $list-typeface: $paragraph-typeface;
@@ -98,6 +98,8 @@ $rule-border-top: 1px solid $quiet-type-color;
 $rule-border-bottom: 0;
 
 
+//Spacer
+$spacer-block-color: #eee;
 
 
 

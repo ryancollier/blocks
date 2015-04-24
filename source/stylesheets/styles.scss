@@ -121,12 +121,13 @@
 	}
 		
 	//Clean Up Margins
-	div[class*="col-"] { 
+	div[class*="col-"],
+	div.format { 
 		& > h1:first-child,
 		& > h2:first-child,
 		& > h3:first-child, 
 		& > h4:first-child,
-		& > p:first-child,
+		& > p,
 		& > ul,
 		& > ol,
 		& > blockquote,
@@ -134,22 +135,52 @@
 		h1 + p, h2 + p, h3 + p, h4 + p {
 			margin-top: 0px;
 		}
+		//Sets media objects following headings to align with mulit-column layouts(assuming they are within paragraph tags)
+		h1 + p > .media,
+		h2 + p > .media,
+		h3 + p > .media,
+		h4 + p > .media {
+			margin-top: (0.25 * $base-line-height);
+		}
 		
 		li + ul, li + ol {
 			margin-bottom: 0px;
 		}
 	}
+
+	div[class*="col-"]:not(:first-child) {
+		.media {
+			// Maybe do something here but you'd need to know the line height the first ele in the first rows. Or last rows. This might be a bad idea. 
+		}
+	}
+	
+	.format {
+		&.center {
+			text-align: center;
+		}
+
+		&.spacer {
+			background: $spacer-block-color;
+			padding: (0.5 * $base-line-height) 0 (0.5 * $base-line-height) 0;
+				& span {
+					font-style: italic;
+					color: $quiet-type-color;
+					text-align: center;
+					display: block;
+				}
+			}
+	}
+
 }
 
 
 
-
 .block {
-	padding: 1.3125em;
 	overflow: hidden; 
 
 	&.editable {
 	border: 1px dotted #aaa;
 	margin-bottom: 2em;
+	padding: 1.3125em;
 	}
 }
