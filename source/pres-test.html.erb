@@ -2,14 +2,56 @@
 title: Blocks
 ---
 
+    <script>
+
+      $(document).ready(function() { 	
+          console.log( "ready!" );
+          $(".block").removeClass("editable");
+          $(".block").addClass("hidden");
+      	  $(".block:first").removeClass("hidden").addClass("current");
+		});
+
+      $(document).keydown(function(e) {
+	    switch(e.which) {
+	        case 37: // left
+
+	        console.log("left");
+	        $(".block.current").prev().removeClass("hidden").addClass("prev");
+	        $(".block.current").removeClass("current").toggleClass("hidden").removeClass("prev");
+	        $(".block.prev").addClass("current");
+
+
+	        break;
+
+	        case 38: // up
+	        break;
+
+	        case 39: // right
+
+	        console.log("right");
+	        console.log($(".block.current").next(".block").attr("id"));
+	       	
+	       	$(".block.current").next(".block").removeClass("hidden").addClass("next");
+	       	$(".block.current").removeClass("current").toggleClass("hidden").removeClass("next");
+	       	$(".block.next").addClass("current");
+
+	        break;
+
+	        case 40: // down
+	        break;
+
+	        default: return; // exit this handler for other keys
+	    }
+	    e.preventDefault(); // prevent the default action (scroll / move caret)
+	});
+
+     	 
+    </script>
+
+
 <div id="main">
 
 	<div class="container">
-
-		<H1>Hello, Blocks!</H1>
-		<p>Sample content blocks with layouts and some basic styles.<br /></p>
-
-
 
 		<div class="block editable">
 
@@ -145,19 +187,6 @@ title: Blocks
 		</div>
 
 
-		<div class="block editable">
-
-			<div class="layout">
-
-				<div class="col-12">
-
-					<div class="format spacer"><span>Spacer</span></div>
-
-				</div>
-
-			</div>
-
-		</div>
 
 
 
