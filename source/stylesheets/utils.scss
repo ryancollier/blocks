@@ -53,6 +53,24 @@ img {
 	
 } */
 
+
+.ctrl {
+	background: #eee;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 0.86em;
+	background: rgba(0,0,0,0.5)
+}
+
+.view-switch {
+	font-size: 0.867em;
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
 body.pres-test {
 
 	.hidden {

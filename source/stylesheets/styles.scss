@@ -14,8 +14,8 @@
 
 	//Jumbo Screens
 	@media only screen and (min-width : 1280px) {
-	   font-size: 1.816em;
-	   max-width: 87%;
+	   //font-size: 1.816em;
+	   //max-width: $measure;
 	}
 }
 
@@ -163,6 +163,10 @@
 	.format {
 		&.center {
 			text-align: center;
+		}
+
+		&.large {
+			font-size: 1.789473684em;
 		}
 
 		&.spacer {

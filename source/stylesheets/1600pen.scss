@@ -70,7 +70,7 @@ $blockquote-font-size: 1.315789474em;
 $blockquote-line: 1.16em;
 $blockquote-lines: 1;
 $blockquote-line-height: 1.3 * $h3-line-height;
-$blockquote-margin: $base-line-height 0 $base-line-height 0;
+$blockquote-margin: $base-line-height 0 (2 * $base-line-height) 0;
 $blockquote-padding: 1.1875rem; //rem to ensure consistent space for MQ?
 
 $blockquote-background: #f1f1f1;
@@ -92,7 +92,7 @@ $figcaption-color: $secondary-type-color;
 
 //Rule 
 $rule-margin-top: $base-line-height;
-$rule-margin-bottom: $base-line-height;
+$rule-margin-bottom: 2 * $base-line-height;
 $rule-height: 1px;
 $rule-border-top: 1px solid $quiet-type-color;
 $rule-border-bottom: 0;
