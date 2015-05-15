@@ -73,6 +73,15 @@ img {
 
 body.pres-test {
 
+	//Jumbo Screens
+	.container {
+		@media only screen and (min-width : 1280px) {
+		   font-size: 1.816em;
+		   max-width: 86%;
+		}
+
+	}
+
 	.hidden {
 		display: none;
 	}
