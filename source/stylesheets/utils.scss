@@ -49,10 +49,6 @@ img {
 	}
 }
 
-/* div[class*="col-"]{
-	
-} */
-
 
 .ctrl {
 	background: #eee;
@@ -69,37 +65,4 @@ img {
 		color: #fff;
 		text-decoration: none;
 	}
-}
-
-body.pres-test {
-
-	//Jumbo Screens
-	.container {
-		@media only screen and (min-width : 1280px) {
-		   font-size: 1.816em;
-		   max-width: 86%;
-		}
-
-	}
-
-	.hidden {
-		display: none;
-	}
-
-	//height: 100%;
-
-	.block {
-		//min-height: 100%;
-		height: 100vh;
-		& .layout {
-
-				position: relative;
-  				top: 50%;
- 				transform: translateY(-50%);
-
-		}
-
-	}
-
-
 }

@@ -1,21 +1,144 @@
-//@import "1600pen";
-@import "Plains";
+
+@import "responsivetype";
+@import "1600pen";
+//@import "Plains";
+
 
 .container {
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	max-width: $measure;
+	
+	
+	//line-height: $base-line-height;
+	max-width: 980px;
 	padding: 1rem;
+	
 
+}
 
-	//Mobile Breakpont 
-	@media only screen and (min-width : 320px) and (max-width : 768px) {
-	   font-size: $mobile-base-font-size;
+.layout {
+
+	font-size: $base-font-size;
+	font-size-adjust: 0.5;
+	font-size-adjust: inherit;
+
+	// Responsive Sizing
+	h1,
+	.text--mega {
+	  @include responsive-text-size("mega");
 	}
+
+	h2,
+	.text--kilo {
+	  @include responsive-text-size("kilo");
+	}
+
+	h3,
+	.text--hecto {
+	  @include responsive-text-size("hecto");
+	}
+
+	h4,
+	.text--deca {
+	  @include responsive-text-size("deca");
+	}
+
+	h5,
+	h6,
+	p,
+	figcaption,
+	ol,
+	ul,
+	.container,
+	.text--base {
+	  @include responsive-text-size("base");
+	}
+
+	blockquote {
+		@include responsive-text-size("deca");
+	}
+
+	.text--deci {
+	  @include responsive-text-size("deci");
+	}
+
+	small,
+	.text--centi {
+	  @include responsive-text-size("centi");
+	}
+
+
+	// Responsive vertical rhythm
+	li {
+		@include responsive-margin("centi");
+	}
+
+ 	// Type Design
+	h1, h2, h3, h4, h5, h6 {
+		font-family: $heading-typeface;
+		color: $heading-color;
+	}
+
+	body, p, ul, ol {
+		font-family: $paragraph-typeface;
+		color: $primary-type-color;
+		//@include responsive-text-size("base");
+	}
+
+	//Lists
+	ul, ol {
+		padding-left: 1.3rem;
+	}
+
+	//Misc Elements
+	blockquote {
+		font-family: $blockquote-typeface;
+		font-style: $blockquote-type-style;
+		color: $blockquote-color;
+	}
+
+	figure {
+		figcaption {
+			font-family: $figcaption-typeface;
+			font-style: $figcaption-type-style;
+			padding: $figcaption-padding;
+			margin: $figcaption-margin;
+			color: $figcaption-color; 
+		}
+	}
+
+	//Clean Up Margins
+	div[class*="col-"],
+	div.format { 
+		& > h1:first-child,
+		& > h2:first-child,
+		& > h3:first-child, 
+		& > h4:first-child,
+		& > p,
+		& > ul,
+		& > ol,
+		& > blockquote,
+		li + ul,
+		h1 + p, h2 + p, h3 + p, h4 + p {
+			margin-top: 0px;
+		}
+		//Sets media objects following headings to align with mulit-column layouts(assuming they are within paragraph tags)
+		h1 + p > .media,
+		h2 + p > .media,
+		h3 + p > .media,
+		h4 + p > .media {
+			margin-top: (0.25 * $base-line-height);
+		}
+		
+		li + ul, li + ol {
+			margin-bottom: 0px;
+		}
+	}
+
 }
 
 
-.layout {
+
+
+/* .layout {
 	
 	//Headings	
 	h1 {
@@ -177,7 +300,7 @@
 	}
 
 } // .layout
-
+ */
 
 
 .block {

@@ -1,0 +1,141 @@
+// ----
+// Sass (v3.4.7)
+// ----
+
+// config/_breakpoints.scss
+$breakpoints: (
+  small:    480px,
+  medium:   720px,
+  large:    960px,
+  x-large:  1280px
+);
+
+// config/_typography.scss
+$text-sizing: (
+  centi: (
+    small: (
+      font-size: 0.75em,
+      line-height: 1,
+    )
+  ),
+  deci: (
+    small: (
+      font-size: 0.875em,
+      line-height: 1.25
+    )
+  ),
+  base: (
+    small: (
+      font-size: 1em,
+      line-height: 1.45
+    ),
+    medium: (
+      font-size: 1em,
+      line-height: 1.45
+    )
+  ),
+  deca: (
+    small: (
+      font-size: 1.125em,
+      line-height: 1.111
+    ),
+    medium: (
+      font-size: 1.125em,
+      line-height: 1.222
+    )
+  ),
+  hecto: (
+    small: (
+      font-size: 1.375em,
+      line-height: 1.136
+    ),
+    medium: (
+      font-size: 1.5em,
+      line-height: 1.25
+    ),
+    large: (
+      font-size: 1.75em,
+      line-height: 1.25
+    )
+  ),
+  kilo: (
+    small: (
+      font-size: 1.625em,
+      line-height: 1.154
+    ),
+    medium: (
+      font-size: 2em,
+      line-height: 1.25
+    ),
+    large: (
+      font-size: 2.25em,
+      line-height: 1.25
+    )
+  ),
+  mega: (
+    small: (
+      font-size: 2em,
+      line-height: 1.25
+    ),
+    medium: (
+      font-size: 2.5em,
+      line-height: 1.125
+    ),
+    large: (
+      font-size: 3em,
+      line-height: 1.05
+    )
+  )
+);
+
+// lib/functions/_responsive.scss
+@function breakpoint($breakpoint-name) {
+  @return map-get($breakpoints, $breakpoint-name);
+}
+
+// lib/functions/_typography.scss
+@function text-breakpoints-for($text-size) {
+  @return map-get($text-sizing, $text-size);
+}
+
+@function text-properties-for($text-size, $breakpoint-name) {
+  $text-breakpoints-map: text-breakpoints-for($text-size);
+  @return map-get($text-breakpoints-map, $breakpoint-name);
+}
+
+// lib/mixins/_responsive.scss
+@mixin respond-above($breakpoint-name) {
+  @media screen and (min-width: breakpoint($breakpoint-name)) {
+    @content;
+  }
+}
+
+// lib/mixins/_typography.scss
+@mixin text-size($text-size, $breakpoint-name: "small") {
+  $text-size-properties: text-properties-for($text-size, $breakpoint-name);
+  font-size: map-get($text-size-properties, "font-size");
+  line-height: map-get($text-size-properties, "line-height");
+  margin-top: map-get($text-size-properties, "line-height")*1.5 + em;
+  margin-bottom: map-get($text-size-properties, "line-height")*0.5 + em;
+}
+
+@mixin responsive-margin($text-size, $breakpoint-name: "small") {
+  $text-size-properties: text-properties-for($text-size, $breakpoint-name);
+  margin-top: map-get($text-size-properties, "line-height")*0 + em;
+  margin-bottom: map-get($text-size-properties, "line-height")*1 + em;
+}
+
+@mixin responsive-text-size($text-size, $default-breakpoint: "small") {
+  @include text-size($text-size, $default-breakpoint);
+
+  $text-breakpoints-map: text-breakpoints-for($text-size);
+  $text-breakpoints-keys: map-keys($text-breakpoints-map);
+
+  @each $breakpoint-name in $text-breakpoints-keys {
+    @if $breakpoint-name != $default-breakpoint and breakpoint($breakpoint-name) != null {
+      @include respond-above($breakpoint-name) {
+        @include text-size($text-size, $breakpoint-name);
+      }
+    }
+  }
+}
