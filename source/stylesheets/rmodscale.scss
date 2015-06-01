@@ -1,0 +1,137 @@
+// ----
+// Sass (v3.3.4)
+// Compass (v1.0.0.alpha.18)
+// Breakpoint (v2.4.2)
+// Modular Scale (v2.0.4)
+// ----
+
+// Modular Scale
+// =============
+@import "modular-scale";
+
+// MS Settings
+$ms-base: 19px; // don't worry, it gets converted to ems
+$ms-ratio: $minor-third;
+
+// Small Screen Variables
+$ms-smscr-ratio: $major-second;
+
+$ms-smscr-norm     : $ms-base;
+$ms-smscr-med      : ms(2, $ms-base, $ms-smscr-ratio);
+$ms-smscr-lrg      : ms(3, $ms-base, $ms-smscr-ratio);
+$ms-smscr-xlrg     : ms(4, $ms-base, $ms-smscr-ratio);
+$ms-smscr-xxlrg    : ms(5, $ms-base, $ms-smscr-ratio);
+$ms-smscr-xxxlrg   : ms(6, $ms-base, $ms-smscr-ratio);
+
+// Default Variables
+$ms-norm     : $ms-base;
+$ms-med      : ms(2);
+$ms-lrg      : ms(3);
+$ms-xlrg     : ms(4);
+$ms-xxlrg    : ms(5);
+$ms-xxxlrg   : ms(6);
+
+// Compass Vertical Rhythym
+// ========================
+
+@import "compass/typography/vertical_rhythm";
+
+// Vertical rhythym settings
+$base-font-size    : $ms-norm;
+$base-line-height  : $ms-med;
+
+// Breakpoint --- 
+//  Note there is an issue here arising from compass alpha release, sass version and finding the right Gems.
+//  Investigate later. For now, I mannually imported breakpoint into source/stylesheets/_breakpoint.scss
+// ==========
+
+@import "breakpoint";
+
+// BP Vars
+$bp-sm: 500px;
+
+// BP Settings
+@include breakpoint-set('to ems', $bp-sm);
+
+
+
+
+// Type Vars
+$heading-type: "Arial";
+$body-type: "Georgia";
+
+// Sizing Module
+// =============
+
+$eles: (
+  h1: (
+    $ms-xxxlrg,
+    $ms-smscr-xxxlrg
+  ),
+  h2: (
+    $ms-xxlrg,
+    $ms-smscr-xxlrg
+  ),
+  h3: (
+    $ms-xlrg,
+    $ms-smscr-xlrg
+  ),
+  h4: (
+    $ms-lrg,
+    $ms-smscr-lrg
+  ),
+  h5:  (
+    $ms-med,
+    $ms-smscr-med
+  ),
+  h6:  (
+    $ms-norm,
+    $ms-smscr-norm
+  ),
+  p: (
+    $ms-base,
+    $ms-base * .9333
+  ),
+  blockquote: (
+    $ms-med,
+    $ms-smscr-med
+  )
+
+);
+
+
+.typeset {
+  font-family: $body-type;
+  font-size: $ms-base;
+  line-height: $ms-base * 1.68;
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $heading-type;
+    font-weight: 600;
+    margin: ms(5) 0 0 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: ms(-1);  
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
+  @each $ele, $size in $eles {
+    #{$ele} {
+      @include adjust-font-size-to( nth($size, 2) );
+      
+      @include breakpoint($bp-sm) {
+        @include adjust-font-size-to( nth($size, 1) );
+      }
+    }
+  }
+}
